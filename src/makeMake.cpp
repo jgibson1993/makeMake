@@ -4,6 +4,10 @@
 #include <fstream>
 #include <vector>
 
+#define VERSION_RELEASE 1
+#define VERSION_MAJOR	0
+#define VERSION_MINOR	0
+
 int main(int argc, char* args[])
 {
 	if(argc == 1)
@@ -89,7 +93,7 @@ int main(int argc, char* args[])
 			 << "vpath \%.d	dep\n"
 			 << "vpath \%.o	obj\n\n"
 
-			 << ".PHONY: build clean";
+			 << ".PHONY: build clean depClean";
 
 	if(twoMode)
 	{
@@ -139,7 +143,12 @@ int main(int argc, char* args[])
 			 << "clean:\n"
 			 << "	del $(Executable) $(subst /,\\,$(Objects)) $(subst /,\\,$(Dependencies))\n\n"
 
-			<< "-include $(Dependencies)\n";
+			 << "depClean:\n"
+			 <<	"	del $(subst /,\\,$(Dependencies))\n\n"
+
+			 << "-include $(Dependencies)\n\n"
+
+			 << "#created with makeMake v" << VERSION_RELEASE << "." << VERSION_MAJOR << "." << VERSION_MINOR;
 
 	std::ofstream mfile;
 	mfile.open("makefile");
