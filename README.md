@@ -6,7 +6,7 @@ makefiles for me
 	makeMake [Executable name]
 
 ##with switches:
-.*	-db		setup separate rules for building debug versions of things, debug default
-.*	-bd		ditto on above, but build is default
-.*	-r		sets up folders for sources and objects, writes default rules accordingly
-.*	-w		creates the makefile with the build rule producing a file that doesn't open a cmd window
+*	-db		setup separate rules for building debug versions of things, debug default
+*	-bd		ditto on above, but build is default
+*	-r		sets up folders for sources and objects, writes default rules accordingly
+*	-w		creates the makefile with the build rule producing a file that doesn't open a cmd window
